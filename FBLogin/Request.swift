@@ -24,7 +24,13 @@ class Request {
         self.httpMethod = httpMethod
     }
     
-    func addRequest() -> FBSDKGraphRequest? {
+    // function to modify the request according to it's type
+    
+    private func checkRequest() -> FBSDKGraphRequest? {
+        guard (FBSDKAccessToken.current()) != nil else {
+            print("Token Error")
+            return nil
+        }
         var request: FBSDKGraphRequest?
         if httpMethod == "GET" {
             request = FBSDKGraphRequest(graphPath: self.graphPath, parameters: self.parameters, httpMethod: "GET")
@@ -37,42 +43,43 @@ class Request {
         return nil
     }
     
-    func submitRequest() {
-        guard (FBSDKAccessToken.current()) != nil else {
-            return
-        }
-        guard let request = addRequest() else {
+    // function to submit the posts request
+    
+    func submitPostsRequest() {
+        guard let request = checkRequest() else {
             print("Invalid request")
             return
         }
-        
         request.start(completionHandler: { (connection, result, error) -> Void in
             if (error == nil) {
-                let sortedData = self.sortData(result: result!)
-                self.createPostsArray(idArray: sortedData)
-                for element in posts {
-                    let request2 = Request(graphPath: String(element.id), parameters: ["fields":"likes"], httpMethod: "GET")
-                    request2.submitRequest2()
+                self.addToPostsArray(idArray: self.retrievePosts(result: result!))
+                for post in posts {
+                    let likesRequest = Request(graphPath: String(post.id), parameters: ["fields":"likes"], httpMethod: "GET")
+                    likesRequest.submitLikesRequest()
                 }
             } else {
-                print(error)
+                print(error as Any)
             }
         })
     }
     
-    func sortData(result: Any) -> [String] {
-        var elementArray = [String]()
-        if let data = result as? Dictionary<String, Any>, let array = data["data"] as? Array<Dictionary<String, String>> {
-            for item in array {
-                if let id = item["id"] {
-                    elementArray.append(id)
+    // function which retrieves posts' ids and appends them to the array
+    
+    func retrievePosts(result: Any) -> [String] {
+        var idArray = [String]()
+        if let retrievedData = result as? Dictionary<String, Any>, let posts = retrievedData["data"] as? Array<Dictionary<String, String>> {
+            for post in posts {
+                if let postId = post["id"] {
+                    idArray.append(postId)
                 }
             }
         }
-        return elementArray
+        return idArray
     }
     
-    func createPostsArray(idArray: [String]) {
+    // function which creates a Post instance and appends it to posts array
+    
+    func addToPostsArray(idArray: [String]) {
         for element in idArray {
             let post = Post()
             post.id = element
@@ -80,39 +87,30 @@ class Request {
         }
     }
     
-    func submitRequest2() {
-        guard (FBSDKAccessToken.current()) != nil else {
-            print("Token Error")
-            return
-        }
-        guard let request = addRequest() else {
+    // function to submit the likes request
+    
+    private func submitLikesRequest() {
+        guard let request = checkRequest() else {
             print("Invalid request")
             return
         }
         request.start(completionHandler: { (connection, result, error) -> Void in
             if (error == nil) {
-                let likesNumber = self.sortData2(result: result!)
-                likes.append(likesNumber)
+                let numberOfLikes = self.retrieveNumberOfLikes(result: result!)
+                likes.append(numberOfLikes)
             } else {
-                print(error)
+                print(error as Any)
             }
         })
     }
     
-    func sortData2(result: Any) -> Int {
-        if let data1 = result as? Dictionary<String, Any>, let array1 = data1["likes"] as? Dictionary<String, Any>, let likes = array1["data"] as? Array<Dictionary<String, String>>  {
-            print(likes.count)
+    // function which retrieves the number of likes for every user post
+    
+    private func retrieveNumberOfLikes(result: Any) -> Int {
+        if let retrievedPostData = result as? Dictionary<String, Any>, let retrievedLikesData = retrievedPostData["likes"] as? Dictionary<String, Any>, let likes = retrievedLikesData["data"] as? Array<Dictionary<String, String>>  {
             return likes.count
         } else {
             return 0
-        }
-    }
-    
-    func addLikesToPost() {
-        var index = 0
-        for post in posts {
-            post.likes = likes[index]
-            index+=1
         }
     }
 }

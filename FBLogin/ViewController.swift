@@ -19,8 +19,8 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         tableView.delegate = self
         let loginButton = addFacebookButton()
         _ = Permissions(readPermissions: ["user_posts"], button: loginButton)
-        let request = Request(graphPath: "me/posts", parameters: [:], httpMethod: "GET")
-        request.submitRequest()
+        let postsRequest = Request(graphPath: "me/posts", parameters: [:], httpMethod: "GET")
+        postsRequest.submitPostsRequest()
     }
     
     private func addFacebookButton() -> FBSDKLoginButton {
