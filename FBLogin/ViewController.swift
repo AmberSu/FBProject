@@ -9,18 +9,30 @@
 import UIKit
 import FBSDKLoginKit
 
-class ViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
+class ViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, FBSDKLoginButtonDelegate {
     
     @IBOutlet weak var tableView: UITableView!
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(true)
-        tableView.dataSource = self
-        tableView.delegate = self
         let loginButton = addFacebookButton()
         _ = Permissions(readPermissions: ["user_posts"], button: loginButton)
+        if (FBSDKAccessToken.current()) != nil {
         let postsRequest = Request(graphPath: "me/posts", parameters: [:], httpMethod: "GET")
         postsRequest.submitPostsRequest()
+        tableView.dataSource = self
+        tableView.delegate = self
+        }
+    }
+    
+    func loginButton(_ loginButton: FBSDKLoginButton!, didCompleteWith result: FBSDKLoginManagerLoginResult!, error: Error!) {
+        tableView.reloadData()
+    }
+    
+    func loginButtonDidLogOut(_ loginButton: FBSDKLoginButton!) {
+        posts.removeAll()
+        likes.removeAll()
+        tableView.reloadData()
     }
     
     private func addFacebookButton() -> FBSDKLoginButton {
@@ -32,7 +44,7 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
     
     @IBAction func showTableView(_ sender: UIButton) {
         var index = 0
-        if !posts.isEmpty {
+        if !posts.isEmpty && !likes.isEmpty {
             for post in posts {
                 post.likes = likes[index]
                 index+=1
@@ -55,10 +67,10 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let tableViewCell: UITableViewCell = UITableViewCell(style: .default, reuseIdentifier: "Cell")
         
-        tableViewCell.textLabel?.numberOfLines = 3
-        let id = posts[indexPath.row].id
+        tableViewCell.textLabel?.numberOfLines = 2
+        let story = posts[indexPath.row].story
         let likes = posts[indexPath.row].likes
-        tableViewCell.textLabel?.text = "Post with id \(id) got \(likes) likes"
+        tableViewCell.textLabel?.text = "Post '\(story)' got \(likes) likes"
         return tableViewCell
     }
 }

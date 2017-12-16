@@ -18,8 +18,8 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" indicatorStyle="white" dataMode="prototypes" style="grouped" separatorStyle="none" allowsMultipleSelection="YES" rowHeight="80" estimatedRowHeight="-1" sectionHeaderHeight="18" sectionFooterHeight="18" translatesAutoresizingMaskIntoConstraints="NO" id="KAm-et-ZEC">
-                                <rect key="frame" x="0.0" y="20" width="375" height="314"/>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" indicatorStyle="white" dataMode="prototypes" style="grouped" separatorStyle="none" allowsMultipleSelection="YES" rowHeight="60" estimatedRowHeight="-1" sectionHeaderHeight="18" sectionFooterHeight="18" translatesAutoresizingMaskIntoConstraints="NO" id="KAm-et-ZEC">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="314"/>
                                 <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                                 <color key="sectionIndexColor" red="0.0" green="0.0" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <prototypes>
@@ -35,7 +35,7 @@
                                 </prototypes>
                             </tableView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pVp-15-SFX">
-                                <rect key="frame" x="73" y="434" width="230" height="48"/>
+                                <rect key="frame" x="73" y="414" width="230" height="48"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="30"/>
                                 <state key="normal" title="Check Your Likes!"/>
                                 <connections>
@@ -46,7 +46,7 @@
                         <color key="backgroundColor" red="0.84705882349999995" green="0.50980392159999999" blue="0.24313725489999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="KAm-et-ZEC" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="601-yZ-bJl"/>
-                            <constraint firstItem="KAm-et-ZEC" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" constant="20" id="7xh-Fj-tfE"/>
+                            <constraint firstItem="KAm-et-ZEC" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="7xh-Fj-tfE"/>
                             <constraint firstItem="pVp-15-SFX" firstAttribute="top" secondItem="KAm-et-ZEC" secondAttribute="bottom" constant="100" id="GDe-3Z-v36"/>
                             <constraint firstItem="KAm-et-ZEC" firstAttribute="height" secondItem="8bC-Xf-vdC" secondAttribute="height" multiplier="1:2" constant="-19.5" id="ONt-O5-L8Z"/>
                             <constraint firstAttribute="trailing" secondItem="KAm-et-ZEC" secondAttribute="trailing" id="b22-8i-hqS"/>

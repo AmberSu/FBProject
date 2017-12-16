@@ -11,4 +11,5 @@ import Foundation
 class Post {
     var id: String = ""
     var likes: Int = 0
+    var story: String = ""
 }

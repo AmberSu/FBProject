@@ -17,6 +17,7 @@ class Request {
     private let graphPath: String?
     private let parameters: [String:String]?
     private let httpMethod: String?
+    private var index = 0
     
     init(graphPath: String, parameters: [String:String], httpMethod: String) {
         self.graphPath = graphPath
@@ -52,20 +53,23 @@ class Request {
         }
         request.start(completionHandler: { (connection, result, error) -> Void in
             if (error == nil) {
+                var stories = self.retrieveStories(result: result!)
                 self.addToPostsArray(idArray: self.retrievePosts(result: result!))
-                for post in posts {
-                    let likesRequest = Request(graphPath: String(post.id), parameters: ["fields":"likes"], httpMethod: "GET")
-                    likesRequest.submitLikesRequest()
-                }
+                    for post in posts {
+                        post.story = stories[self.index]
+                        self.index+=1
+                        let likesRequest = Request(graphPath: String(post.id), parameters: ["fields":"likes"], httpMethod: "GET")
+                        likesRequest.submitLikesRequest()
+                    }
             } else {
                 print(error as Any)
             }
         })
     }
     
-    // function which retrieves posts' ids and appends them to the array
+    // function which retrieves posts' ids and appends them to the id array
     
-    func retrievePosts(result: Any) -> [String] {
+    private func retrievePosts(result: Any) -> [String] {
         var idArray = [String]()
         if let retrievedData = result as? Dictionary<String, Any>, let posts = retrievedData["data"] as? Array<Dictionary<String, String>> {
             for post in posts {
@@ -77,9 +81,27 @@ class Request {
         return idArray
     }
     
+    // function which retrieves posts' stories and appends them to the story array
+    
+    private func retrieveStories(result: Any) -> [String] {
+        var storyArray = [String]()
+        if let retrievedData = result as? Dictionary<String, Any>, let posts = retrievedData["data"] as? Array<Dictionary<String, String>> {
+            for post in posts {
+                if let postStory = post["story"] {
+                    storyArray.append(postStory)
+                } else if let postMessage = post["message"] {
+                    storyArray.append("Your message: \(postMessage)")
+                } else {
+                    storyArray.append("Your message")
+                }
+            }
+        }
+        return storyArray
+    }
+    
     // function which creates a Post instance and appends it to posts array
     
-    func addToPostsArray(idArray: [String]) {
+    private func addToPostsArray(idArray: [String]) {
         for element in idArray {
             let post = Post()
             post.id = element
