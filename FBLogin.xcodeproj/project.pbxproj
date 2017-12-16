@@ -7,14 +7,21 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2252A43F1FE40AF8002C0D46 /* Permissions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2252A43E1FE40AF8002C0D46 /* Permissions.swift */; };
+		2252A4411FE40B03002C0D46 /* Post.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2252A4401FE40B03002C0D46 /* Post.swift */; };
+		2252A4431FE40B0F002C0D46 /* Request.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2252A4421FE40B0F002C0D46 /* Request.swift */; };
 		22F7B0E11F8A50AA00F60921 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22F7B0E01F8A50AA00F60921 /* AppDelegate.swift */; };
 		22F7B0E31F8A50AA00F60921 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22F7B0E21F8A50AA00F60921 /* ViewController.swift */; };
 		22F7B0E61F8A50AA00F60921 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 22F7B0E41F8A50AA00F60921 /* Main.storyboard */; };
 		22F7B0E81F8A50AA00F60921 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 22F7B0E71F8A50AA00F60921 /* Assets.xcassets */; };
 		22F7B0EB1F8A50AA00F60921 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 22F7B0E91F8A50AA00F60921 /* LaunchScreen.storyboard */; };
+		326981949A398CF578A33202 /* Pods_FBLogin.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 54C63365818D8303556C4ADC /* Pods_FBLogin.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		2252A43E1FE40AF8002C0D46 /* Permissions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Permissions.swift; sourceTree = "<group>"; };
+		2252A4401FE40B03002C0D46 /* Post.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Post.swift; sourceTree = "<group>"; };
+		2252A4421FE40B0F002C0D46 /* Request.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Request.swift; sourceTree = "<group>"; };
 		22F7B0DD1F8A50AA00F60921 /* FBLogin.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FBLogin.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		22F7B0E01F8A50AA00F60921 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		22F7B0E21F8A50AA00F60921 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -22,6 +29,10 @@
 		22F7B0E71F8A50AA00F60921 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		22F7B0EA1F8A50AA00F60921 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		22F7B0EC1F8A50AA00F60921 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		22F7B0F21F8A635A00F60921 /* FBLogin.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = FBLogin.entitlements; sourceTree = "<group>"; };
+		31E153F89BEA0674B6ECE78D /* Pods-FBLogin.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FBLogin.debug.xcconfig"; path = "Pods/Target Support Files/Pods-FBLogin/Pods-FBLogin.debug.xcconfig"; sourceTree = "<group>"; };
+		54C63365818D8303556C4ADC /* Pods_FBLogin.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_FBLogin.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		8E6CB78A45C20C02B637FB0B /* Pods-FBLogin.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FBLogin.release.xcconfig"; path = "Pods/Target Support Files/Pods-FBLogin/Pods-FBLogin.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -29,6 +40,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				326981949A398CF578A33202 /* Pods_FBLogin.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -40,6 +52,8 @@
 			children = (
 				22F7B0DF1F8A50AA00F60921 /* FBLogin */,
 				22F7B0DE1F8A50AA00F60921 /* Products */,
+				BCE378AED2D2376AE6FF994B /* Pods */,
+				CCC9B33F6BC01B2029A9FF57 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -54,14 +68,35 @@
 		22F7B0DF1F8A50AA00F60921 /* FBLogin */ = {
 			isa = PBXGroup;
 			children = (
+				22F7B0F21F8A635A00F60921 /* FBLogin.entitlements */,
 				22F7B0E01F8A50AA00F60921 /* AppDelegate.swift */,
 				22F7B0E21F8A50AA00F60921 /* ViewController.swift */,
+				2252A43E1FE40AF8002C0D46 /* Permissions.swift */,
+				2252A4401FE40B03002C0D46 /* Post.swift */,
+				2252A4421FE40B0F002C0D46 /* Request.swift */,
 				22F7B0E41F8A50AA00F60921 /* Main.storyboard */,
 				22F7B0E71F8A50AA00F60921 /* Assets.xcassets */,
 				22F7B0E91F8A50AA00F60921 /* LaunchScreen.storyboard */,
 				22F7B0EC1F8A50AA00F60921 /* Info.plist */,
 			);
 			path = FBLogin;
+			sourceTree = "<group>";
+		};
+		BCE378AED2D2376AE6FF994B /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				31E153F89BEA0674B6ECE78D /* Pods-FBLogin.debug.xcconfig */,
+				8E6CB78A45C20C02B637FB0B /* Pods-FBLogin.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		CCC9B33F6BC01B2029A9FF57 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				54C63365818D8303556C4ADC /* Pods_FBLogin.framework */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -71,9 +106,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 22F7B0EF1F8A50AA00F60921 /* Build configuration list for PBXNativeTarget "FBLogin" */;
 			buildPhases = (
+				FA376F1AA8CF6A9E7E333F07 /* [CP] Check Pods Manifest.lock */,
 				22F7B0D91F8A50AA00F60921 /* Sources */,
 				22F7B0DA1F8A50AA00F60921 /* Frameworks */,
 				22F7B0DB1F8A50AA00F60921 /* Resources */,
+				758966CF933B0E17E3592074 /* [CP] Embed Pods Frameworks */,
+				3BE1812A8A9E3FE81F52A5AC /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -97,6 +135,11 @@
 					22F7B0DC1F8A50AA00F60921 = {
 						CreatedOnToolsVersion = 9.0;
 						ProvisioningStyle = Automatic;
+						SystemCapabilities = {
+							com.apple.Keychain = {
+								enabled = 1;
+							};
+						};
 					};
 				};
 			};
@@ -131,13 +174,76 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		3BE1812A8A9E3FE81F52A5AC /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-FBLogin/Pods-FBLogin-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		758966CF933B0E17E3592074 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-FBLogin/Pods-FBLogin-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/Bolts/Bolts.framework",
+				"${BUILT_PRODUCTS_DIR}/FBSDKCoreKit/FBSDKCoreKit.framework",
+				"${BUILT_PRODUCTS_DIR}/FBSDKLoginKit/FBSDKLoginKit.framework",
+				"${BUILT_PRODUCTS_DIR}/FBSDKShareKit/FBSDKShareKit.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Bolts.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FBSDKCoreKit.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FBSDKLoginKit.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FBSDKShareKit.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-FBLogin/Pods-FBLogin-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		FA376F1AA8CF6A9E7E333F07 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-FBLogin-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		22F7B0D91F8A50AA00F60921 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 				22F7B0E31F8A50AA00F60921 /* ViewController.swift in Sources */,
+				2252A43F1FE40AF8002C0D46 /* Permissions.swift in Sources */,
+				2252A4431FE40B0F002C0D46 /* Request.swift in Sources */,
 				22F7B0E11F8A50AA00F60921 /* AppDelegate.swift in Sources */,
+				2252A4411FE40B03002C0D46 /* Post.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -272,13 +378,15 @@
 		};
 		22F7B0F01F8A50AA00F60921 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 31E153F89BEA0674B6ECE78D /* Pods-FBLogin.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = FBLogin/FBLogin.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = P3Y6KB76J9;
 				INFOPLIST_FILE = FBLogin/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = www.amberApps.FBLogin;
+				PRODUCT_BUNDLE_IDENTIFIER = www.gintareApps.FBLogin;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -287,13 +395,15 @@
 		};
 		22F7B0F11F8A50AA00F60921 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 8E6CB78A45C20C02B637FB0B /* Pods-FBLogin.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = FBLogin/FBLogin.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = P3Y6KB76J9;
 				INFOPLIST_FILE = FBLogin/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = www.amberApps.FBLogin;
+				PRODUCT_BUNDLE_IDENTIFIER = www.gintareApps.FBLogin;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
