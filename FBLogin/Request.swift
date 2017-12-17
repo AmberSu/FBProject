@@ -9,7 +9,6 @@
 import Foundation
 import FBSDKLoginKit
 
-
 var posts = [Post]()
 var likes = [Int]()
 

@@ -20,11 +20,11 @@
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" indicatorStyle="white" dataMode="prototypes" style="grouped" separatorStyle="none" allowsMultipleSelection="YES" rowHeight="60" estimatedRowHeight="-1" sectionHeaderHeight="18" sectionFooterHeight="18" translatesAutoresizingMaskIntoConstraints="NO" id="KAm-et-ZEC">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="314"/>
-                                <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                                <color key="backgroundColor" red="0.92156862745098034" green="0.92156862745098034" blue="0.92156862745098034" alpha="1" colorSpace="calibratedRGB"/>
                                 <color key="sectionIndexColor" red="0.0" green="0.0" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleAspectFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="Cell" rowHeight="106" id="0Wh-6h-PEQ">
-                                        <rect key="frame" x="0.0" y="55.5" width="375" height="106"/>
+                                        <rect key="frame" x="0.0" y="56" width="375" height="106"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="0Wh-6h-PEQ" id="F0J-ci-hQH">
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="106"/>
@@ -34,10 +34,11 @@
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pVp-15-SFX">
-                                <rect key="frame" x="73" y="414" width="230" height="48"/>
+                            <button opaque="NO" contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pVp-15-SFX">
+                                <rect key="frame" x="0.0" y="416" width="375" height="48"/>
+                                <color key="backgroundColor" red="0.92156862745098034" green="0.92156862745098034" blue="0.92156862745098034" alpha="1" colorSpace="calibratedRGB"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="30"/>
-                                <state key="normal" title="Check Your Likes!"/>
+                                <state key="normal" title="Get Your Likes!"/>
                                 <connections>
                                     <action selector="showTableView:" destination="BYZ-38-t0r" eventType="touchUpInside" id="swm-uu-h7S"/>
                                 </connections>
@@ -47,14 +48,17 @@
                         <constraints>
                             <constraint firstItem="KAm-et-ZEC" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="601-yZ-bJl"/>
                             <constraint firstItem="KAm-et-ZEC" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="7xh-Fj-tfE"/>
-                            <constraint firstItem="pVp-15-SFX" firstAttribute="top" secondItem="KAm-et-ZEC" secondAttribute="bottom" constant="100" id="GDe-3Z-v36"/>
+                            <constraint firstItem="pVp-15-SFX" firstAttribute="top" secondItem="KAm-et-ZEC" secondAttribute="bottom" constant="102" id="GDe-3Z-v36"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" relation="lessThanOrEqual" secondItem="pVp-15-SFX" secondAttribute="bottom" constant="203" id="KWV-s5-nmR"/>
                             <constraint firstItem="KAm-et-ZEC" firstAttribute="height" secondItem="8bC-Xf-vdC" secondAttribute="height" multiplier="1:2" constant="-19.5" id="ONt-O5-L8Z"/>
                             <constraint firstAttribute="trailing" secondItem="KAm-et-ZEC" secondAttribute="trailing" id="b22-8i-hqS"/>
-                            <constraint firstItem="pVp-15-SFX" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="vac-zk-49t"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="pVp-15-SFX" secondAttribute="trailing" id="du6-Vn-UHw"/>
+                            <constraint firstItem="pVp-15-SFX" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="e0F-pl-YGP"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                     <connections>
+                        <outlet property="getLikesButton" destination="pVp-15-SFX" id="Wcv-oq-hUh"/>
                         <outlet property="tableView" destination="KAm-et-ZEC" id="rDw-W7-uc3"/>
                     </connections>
                 </viewController>
