@@ -53,8 +53,8 @@ class Request {
         }
         request.start(completionHandler: { (connection, result, error) -> Void in
             if (error == nil) {
-                var stories = self.retrieveStories(result: result!)
-                self.addToPostsArray(idArray: self.retrievePosts(result: result!))
+                    var stories = self.retrieveStories(result: result!)
+                    self.addToPostsArray(idArray: self.retrievePosts(result: result!))
                     for post in posts {
                         post.story = stories[self.index]
                         self.index+=1

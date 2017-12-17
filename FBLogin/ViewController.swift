@@ -16,30 +16,33 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(true)
         let loginButton = addFacebookButton()
-        _ = Permissions(readPermissions: ["user_posts"], button: loginButton)
-        if (FBSDKAccessToken.current()) != nil {
-        let postsRequest = Request(graphPath: "me/posts", parameters: [:], httpMethod: "GET")
-        postsRequest.submitPostsRequest()
         tableView.dataSource = self
         tableView.delegate = self
-        }
+        tableView.isHidden = true
+        _ = Permissions(readPermissions: ["user_posts"], button: loginButton)
+        let postsRequest = Request(graphPath: "me/posts", parameters: [:], httpMethod: "GET")
+        postsRequest.submitPostsRequest()
     }
     
-    func loginButton(_ loginButton: FBSDKLoginButton!, didCompleteWith result: FBSDKLoginManagerLoginResult!, error: Error!) {
-        tableView.reloadData()
-    }
-    
-    func loginButtonDidLogOut(_ loginButton: FBSDKLoginButton!) {
-        posts.removeAll()
-        likes.removeAll()
-        tableView.reloadData()
-    }
+    // login button functions
     
     private func addFacebookButton() -> FBSDKLoginButton {
         let loginButton = FBSDKLoginButton()
-        loginButton.center = CGPoint(x: self.view.frame.width / 2, y: self.view.frame.height - 100)
+        loginButton.delegate = self
+        loginButton.center = CGPoint(x: self.view.frame.width / 2, y: self.view.frame.height - 120)
         view.addSubview(loginButton)
         return loginButton
+    }
+    
+    func loginButton(_ loginButton: FBSDKLoginButton!, didCompleteWith result: FBSDKLoginManagerLoginResult!, error: Error!) {
+        
+    }
+    
+    func loginButtonDidLogOut(_ loginButton: FBSDKLoginButton!) {
+        tableView.isHidden = true
+        posts.removeAll()
+        likes.removeAll()
+        tableView.reloadData()
     }
     
     @IBAction func showTableView(_ sender: UIButton) {
@@ -50,6 +53,7 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
                 index+=1
             }
             posts.sort { $0.likes > $1.likes }
+            tableView.isHidden = false
             tableView.reloadData()
         }
     }
